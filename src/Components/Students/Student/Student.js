@@ -23,6 +23,7 @@ export default class Student extends React.Component {
         console.log(Error);
       });
   };
+  
 
   render() {
     return (
