@@ -16,20 +16,21 @@ export default class Student extends React.Component {
       .then((response) => {
         console.log("POST OMAD...!");
         this.setState({ posts: response.data });
-        console.log("SET SHOD...!","studentId:",id);
+        console.log("SET SHOD...!", "studentId:", id);
       })
       .catch((Error) => {
         console.log("ERROR DARIM...!");
         console.log(Error);
       });
   };
-  
 
   render() {
     return (
       <div className="user-box">
         <div>
-          <h2 className="user-name">{this.props.name}</h2>
+          <h2 className="user-name">
+            {this.props.id} : {this.props.name}
+          </h2>
           <p className="user-email">email : {this.props.email}</p>
           <p className="user-phone">Phone : {this.props.phone}</p>
         </div>
@@ -37,19 +38,17 @@ export default class Student extends React.Component {
           <button onClick={() => this.showPostHndler(this.props.id)}>
             Show post
           </button>
-          {
-            this.state.posts !== null
-              ? this.state.posts.map( (posts) => {
-                  return (
-                    <Showpost
-                      key={posts.id}
-                      title={posts.title}
-                      body={posts.body}
-                    />
-                  );
-                })
-              : null
-          }
+          {this.state.posts !== null
+            ? this.state.posts.map((posts) => {
+                return (
+                  <Showpost
+                    key={posts.id}
+                    title={posts.title}
+                    body={posts.body}
+                  />
+                );
+              })
+            : null}
         </div>
       </div>
     );

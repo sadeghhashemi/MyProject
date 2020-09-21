@@ -11,7 +11,7 @@ class Showpost extends React.Component {
 
   render() {
     return <div className="post-box">
-       <h1>{this.props.title}:</h1>
+       <h1>{this.props.title} :</h1>
        <p>{this.props.body}</p>
        <div className="comment-box">
          <button>Comments</button>
